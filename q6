@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Função que copia uma string para outra utilizando ponteiros
+void copiarString(char *origem, char *destino) {
+    // Loop para copiar cada caractere da string origem para destino
+    while (*origem != '\0') {
+        *destino = *origem;  // Copia o caractere
+        origem++;             // Move o ponteiro para o próximo caractere da origem
+        destino++;            // Move o ponteiro para o próximo espaço na string destino
+    }
+    *destino = '\0';  // Adiciona o caractere nulo para finalizar a string destino
+}
+
+int main() {
+    char origem[100], destino[100];
+
+    // Solicita que o usuário digite a string de origem
+    printf("Digite uma string: ");
+    fgets(origem, sizeof(origem), stdin);  // Usa fgets para ler a string com espaços
+
+    // Chama a função para copiar a string
+    copiarString(origem, destino);
+
+    // Exibe as strings de origem e destino
+    printf("String original: %s", origem);
+    printf("String copiada: %s", destino);
+
+    return 0;
+}
