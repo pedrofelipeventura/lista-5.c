@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int num1, num2, soma;      // Variáveis para os números e a soma
+    int *ptr1, *ptr2, *ptrSoma; // Ponteiros para os números e a soma
+
+    // Solicita ao usuário os dois números
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+
+    // Atribui os endereços das variáveis aos ponteiros
+    ptr1 = &num1;
+    ptr2 = &num2;
+    
+    // Realiza a soma e armazena no ponteiro ptrSoma
+    ptrSoma = &soma;
+    *ptrSoma = *ptr1 + *ptr2;  // Soma os valores apontados pelos ponteiros e armazena na variável soma
+
+    // Imprime o valor da soma e o endereço onde está armazenado
+    printf("Soma: %d\n", *ptrSoma);
+    printf("Endereço de memória onde o valor da soma está armazenado: %p\n", (void*)ptrSoma);
+
+    return 0;
+}
