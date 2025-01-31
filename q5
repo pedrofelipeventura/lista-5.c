@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Função que encontra o tamanho da string utilizando ponteiros
+int tamanhoString(char *str) {
+    int tamanho = 0;
+
+    // Loop para percorrer a string até o caractere nulo
+    while (*str != '\0') {
+        tamanho++;  // Incrementa o contador de tamanho
+        str++;      // Move o ponteiro para o próximo caractere
+    }
+
+    return tamanho;
+}
+
+int main() {
+    char str[100];
+
+    // Solicita que o usuário digite uma string
+    printf("Digite uma string: ");
+    fgets(str, sizeof(str), stdin);  // Usa fgets para ler a string com espaços
+
+    // Calcula o tamanho da string utilizando a função tamanhoString
+    int tamanho = tamanhoString(str);
+
+    // Exibe o tamanho da string
+    printf("O tamanho da string é: %d\n", tamanho);
+
+    return 0;
+}
