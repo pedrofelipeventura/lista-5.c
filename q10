@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int N, i;
+    
+    // Solicita ao usuário o valor de N
+    printf("Digite o valor de N: ");
+    scanf("%d", &N);
+
+    // Aloca o vetor X com números pseudoaleatórios no intervalo [0, N-1]
+    int X[100]; // Limite arbitrário de 100 para o tamanho de X
+    int F[N];   // Vetor F com N posições
+
+    // Inicializa o vetor F com zeros
+    for (i = 0; i < N; i++) {
+        F[i] = 0;
+    }
+
+    // Inicializa o gerador de números aleatórios
+    srand(time(NULL));
+
+    // Preenche o vetor X com números pseudoaleatórios no intervalo [0, N-1]
+    printf("Vetor X gerado: ");
+    for (i = 0; i < 100; i++) {
+        X[i] = rand() % N;
+        printf("%d ", X[i]);
+
+        // Conta as ocorrências no vetor F
+        F[X[i]]++;
+    }
+    printf("\n");
+
+    // Imprime o vetor F com as ocorrências
+    printf("Vetor F (quantidade de ocorrências): ");
+    for (i = 0; i < N; i++) {
+        printf("%d ", F[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
