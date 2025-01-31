@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+#define TAMANHO 5 // Define o tamanho do vetor
+
+int main() {
+    // Definição de vetores com tipos diferentes
+    int vetorInt[TAMANHO];
+    float vetorFloat[TAMANHO];
+    char vetorChar[TAMANHO];
+
+    // Leitura de valores inteiros
+    printf("Digite %d números inteiros:\n", TAMANHO);
+    for (int i = 0; i < TAMANHO; i++) {
+        printf("Inteiro %d: ", i + 1);
+        scanf("%d", &vetorInt[i]);
+    }
+
+    // Leitura de valores de ponto flutuante
+    printf("\nDigite %d números de ponto flutuante:\n", TAMANHO);
+    for (int i = 0; i < TAMANHO; i++) {
+        printf("Float %d: ", i + 1);
+        scanf("%f", &vetorFloat[i]);
+    }
+
+    // Leitura de caracteres
+    printf("\nDigite %d caracteres:\n", TAMANHO);
+    for (int i = 0; i < TAMANHO; i++) {
+        printf("Char %d: ", i + 1);
+        scanf(" %c", &vetorChar[i]);  // O espaço antes de %c é para limpar o buffer
+    }
+
+    // Impressão dos valores e endereços dos vetores
+    printf("\nValores e endereços dos vetores:\n");
+
+    // Para o vetor de inteiros
+    printf("\nVetor de inteiros:\n");
+    for (int i = 0; i < TAMANHO; i++) {
+        printf("Valor: %d, Endereço: %p\n", vetorInt[i], (void*)&vetorInt[i]);
+    }
+
+    // Para o vetor de floats
+    printf("\nVetor de floats:\n");
+    for (int i = 0; i < TAMANHO; i++) {
+        printf("Valor: %.2f, Endereço: %p\n", vetorFloat[i], (void*)&vetorFloat[i]);
+    }
+
+    // Para o vetor de caracteres
+    printf("\nVetor de caracteres:\n");
+    for (int i = 0; i < TAMANHO; i++) {
+        printf("Valor: %c, Endereço: %p\n", vetorChar[i], (void*)&vetorChar[i]);
+    }
+
+    return 0;
+}
