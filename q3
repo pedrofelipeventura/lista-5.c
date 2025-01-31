@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+// Função que compara dois valores e atualiza o menor usando ponteiro
+void verificarMenor(int *menor, int num) {
+    if (num < *menor) {
+        *menor = num;  // Atualiza o valor apontado por 'menor' se o número for menor
+    }
+}
+
+int main() {
+    int num, menor;
+
+    // Inicializa o menor valor com um número grande para começar
+    menor = 2147483647;  // Valor muito grande, já que é o maior valor de um inteiro em C
+
+    // Solicita números do usuário e imprime o menor até o critério de parada
+    while (1) {
+        printf("Digite um número (digite -1 para encerrar): ");
+        scanf("%d", &num);
+
+        if (num == -1) {
+            break;  // Encerra o loop se o usuário digitar -1
+        }
+
+        // Chama a função para comparar e atualizar o menor número
+        verificarMenor(&menor, num);
+
+        // Exibe o menor número até o momento
+        printf("Menor valor até o momento: %d\n", menor);
+    }
+
+    printf("Programa encerrado. O menor valor digitado foi: %d\n", menor);
+
+    return 0;
+}
