@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+// Função que implementa o método de ordenação bolha utilizando ponteiros
+void bubbleSort(int *vetor, int tamanho) {
+    int i, j, temp;
+    for (i = 0; i < tamanho - 1; i++) {
+        for (j = 0; j < tamanho - 1 - i; j++) {
+            // Compara os elementos adjacentes e os troca se estiverem fora de ordem
+            if (*(vetor + j) > *(vetor + j + 1)) {
+                // Troca os elementos usando ponteiros
+                temp = *(vetor + j);
+                *(vetor + j) = *(vetor + j + 1);
+                *(vetor + j + 1) = temp;
+            }
+        }
+    }
+}
+
+// Função para imprimir o vetor
+void imprimirVetor(int *vetor, int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", *(vetor + i));
+    }
+    printf("\n");
+}
+
+int main() {
+    int vetor[] = {64, 34, 25, 12, 22, 11, 90};
+    int tamanho = sizeof(vetor) / sizeof(vetor[0]);
+
+    printf("Vetor original: ");
+    imprimirVetor(vetor, tamanho);
+
+    // Chama a função de ordenação bolha
+    bubbleSort(vetor, tamanho);
+
+    printf("Vetor ordenado: ");
+    imprimirVetor(vetor, tamanho);
+
+    return 0;
+}
